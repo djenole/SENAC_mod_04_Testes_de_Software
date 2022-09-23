@@ -24,8 +24,17 @@ public class GerenciadoraClientesTeste {
 		GerenciadoraClientes gerClientes = new GerenciadoraClientes(clientes);
 	
 		Cliente cliente = gerClientes.pesquisaCliente(1);
+		Cliente outroCliente = gerClientes.pesquisaCliente(2);
 		
 		assertThat(cliente.getId(), is(1));
 		assertThat(cliente.getEmail(), is("clayton@gmail.com"));
+		assertThat(cliente.getNome(), is("Clayton"));
+		assertThat(cliente.getIdade(), is(47));
+		
+		
+		assertThat(outroCliente.getId(), is(2));
+		assertThat(outroCliente.getEmail(), is("maria@gmail.com"));
+		assertThat(outroCliente.getNome(), is("Maria"));
+		assertThat(outroCliente.getIdade(), is(10));
 	}
 }
