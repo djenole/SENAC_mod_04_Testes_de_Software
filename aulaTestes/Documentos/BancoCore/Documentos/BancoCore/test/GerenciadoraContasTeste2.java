@@ -10,7 +10,7 @@ import org.junit.Test;
 import sistemabancario.ContaCorrente;
 import sistemabancario.GerenciadoraContas;
 
-public class GerenciadoraContasTeste {
+public class GerenciadoraContasTeste2 {
 
 
 	private GerenciadoraContas gerContas;
@@ -43,7 +43,7 @@ public class GerenciadoraContasTeste {
 		
 		//**************Montar o cenário****************\\
 		
-		ContaCorrente conta01 = new ContaCorrente(1, 200, true);
+		ContaCorrente conta01 = new ContaCorrente(1, 100, true);
 		ContaCorrente conta02 = new ContaCorrente(2, 0, true);
 		
 		List<ContaCorrente> contaDoBanco = new ArrayList<>();
@@ -55,13 +55,13 @@ public class GerenciadoraContasTeste {
 		//***********************************************//
 		
 		//***** Execução de negocio selecionado para o teste****//
-		boolean sucess = gerContas.transfereValor(1, 100, 2);
+		boolean sucess = gerContas.transfereValor(1, 200, 2);
 		//********************************************************//
 		
 		//******** Verificações e análise **********//
 		assertTrue(sucess);
-		assertThat(conta02.getSaldo(), is(100.00));
-		assertThat(conta01.getSaldo(), is(100.00));
+		assertThat(conta01.getSaldo(), is(-100.00));
+		assertThat(conta02.getSaldo(), is(200.00));
 		
 		
 		
